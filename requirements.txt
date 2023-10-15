@@ -17,7 +17,7 @@ mock==4.0.2
 mypy-extensions==1.0.0
 packaging==23.2
 Pillow==7.2.0
-psycopg2==2.9.9
+psycopg2-binary==2.8.6
 pycodestyle==2.6.0
 python-dotenv==0.21.1
 pytz==2020.1
