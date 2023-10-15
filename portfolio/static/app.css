@@ -111,14 +111,14 @@ hr {
   }
 @keyframes animate {
     30%{
-        content: 'Abdelaali ES SALMI';
+        content: 'Alex Githui';
         opacity: 1;
     }
     45%{
         opacity: 0;
     }
     65%{
-        content: 'Programmer';
+        content: 'a BI Developer';
         opacity: 1;
         
     }
@@ -126,7 +126,7 @@ hr {
         opacity: 0;
     }
     80%{
-        content: 'Full Stack Developer';
+        content: 'a Full Stack Developer';
         opacity: 1;
     }
 }
