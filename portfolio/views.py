@@ -4,7 +4,7 @@ from django.core import serializers
 
 import json
 from django.db.models import Q
-from dotenv import dotenv_values
+from decouple import config
 
 from django.core.mail import send_mail
 from django.conf import settings
@@ -19,7 +19,6 @@ from info.models import (
     Message
 )
 
-config = dotenv_values(".env")
 
 def email_send(data):
     old_message = Message.objects.last()
@@ -69,7 +68,7 @@ def homePage(request):
             'experiences': experiences,
             'projects': projects,
             'form': form,
-            'recaptcha_key': config["recaptcha_site_key"]
+            'recaptcha_key': config("recaptcha_site_key", default="")
         }
     return render(request, template_name, context)
 

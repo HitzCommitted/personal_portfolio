@@ -1,5 +1,6 @@
-from dotenv import dotenv_values
+from decouple import config
 import dj_database_url
+
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -8,13 +9,12 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
-config = dotenv_values(".env")
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = config["SECRET_KEY"]
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = config["DEBUG"]
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']
 
@@ -87,28 +87,24 @@ if not DEBUG:
     # https://docs.djangoproject.com/en/2.2/ref/settings/#databases
     DATABASES = {
         'default': dj_database_url.config(
-            default=config['DATABASE_URL']
+            default=config('DATABASE_URL')
         )
     }
     
     # Storage settings
     CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': config['CLOUD_NAME'],
-        'API_KEY': config['API_KEY'],
-        'API_SECRET': config['API_SECRET'],
+        'CLOUD_NAME': config('CLOUD_NAME', default=''),
+        'API_KEY': config('API_KEY', default=''),
+        'API_SECRET': config('API_SECRET', default=''),
     }
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 else:
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': config['DB_NAME'],
-        'USER': config['DB_USER'],
-        'PASSWORD': config['DB_PASSWORD'],
-        'HOST': config['DB_HOST'],
-        'PORT': config['DB_PORT'],
-    }
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        }
     }
 
 # Email settings
@@ -116,8 +112,8 @@ EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 EMAIL_HOST = "smtp.gmail.com"
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
-EMAIL_HOST_USER = config['EMAIL_HOST_USER']
-EMAIL_HOST_PASSWORD = config['EMAIL_HOST_PASSWORD']
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default='')
 
 
 
