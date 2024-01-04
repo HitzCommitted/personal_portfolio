@@ -89,7 +89,7 @@ hr {
 }
 
 .animated {
-    font-size: 40px;
+    font-size: 53px;
     color: #d1d8e0;
     margin-top: 20px;
     font-weight: 900;
@@ -111,14 +111,14 @@ hr {
   }
 @keyframes animate {
     30%{
-        content: 'Abdelaali ES SALMI';
+        content: 'Alex Githui';
         opacity: 1;
     }
     45%{
         opacity: 0;
     }
     65%{
-        content: 'Programmer';
+        content: 'a BI Developer';
         opacity: 1;
         
     }
@@ -126,7 +126,7 @@ hr {
         opacity: 0;
     }
     80%{
-        content: 'Full Stack Developer';
+        content: 'a Full Stack Developer';
         opacity: 1;
     }
 }
