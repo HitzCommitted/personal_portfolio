@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>{% block title %}Alex Githui{% endblock title %}</title>
+        <title>{% block title %}Portfolio - Alex Githui{% endblock title %}</title>
 
         <link rel="shortcut icon" type="image/png" href="{% static 'favicon.svg' %}"/>
 
@@ -29,8 +29,8 @@
 
     </head>
     <body>
-        {% if request.META.HTTP_HOST == 'abdelaali-portfolio.herokuapp.com' %}
-            <meta http-equiv="REFRESH" content="0;url=https://abdelaali.tech/">
+        {% if request.META.HTTP_HOST == 'alexgithui-portfolio.herokuapp.com' %}
+            <meta http-equiv="REFRESH" content="0;url=https://alexgithui.tech/">
         {% endif %}
         {% block body %}
             <!-- particles.js container --> 
@@ -51,8 +51,8 @@
                 <hr>
                 <div class="row pb-3 footer">
                     <div class="col-12 text-center">
-                        <p>Copyright © {% now "Y" %} Alex Githui . All rights reserved</p>
-                        <p class="coder">Built with <i class="fa fa-heart text-danger"></i> in Django By <a href="https://github.com/HitzCommitted">Alex Githui</a></p>
+                        <p>Copyright © {% now "Y" %} Hitz Committed. All rights reserved</p>
+                        <p class="coder">Built with <i class="fa fa-heart text-danger"></i> in Django By <a href="https://github.com/HitzCommitted">Hitz Committed</a></p>
                     </div>
                 </div>
             </div>
